@@ -1,0 +1,22 @@
+class User {
+  final int id;
+  final String nama;
+  final String email;
+  final String role;
+
+  User({
+    required this.id,
+    required this.nama,
+    required this.email,
+    required this.role,
+  });
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      nama: json['nama'] ?? json['nama'] ?? '',
+      email: json['email'],
+      role: json['role'] ?? 'warga', // Default role to warga if not provided
+    );
+  }
+}
